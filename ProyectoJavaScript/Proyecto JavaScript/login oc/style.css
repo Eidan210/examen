@@ -1,0 +1,293 @@
+/* variables para colores y letras que uso en toda la pag */
+@import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;600&family=Montserrat:wght@500;600;700&family=Orbitron:wght@700&display=swap');
+
+:root {
+    --primary-color: #1575dd;
+    --premium-gradient: linear-gradient(135deg, #1575dd 0%, #215f92 35%, #1f3557 70%, #3f2548 100%);
+    --font-display: 'Orbitron', sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body:    'Arimo', sans-serif;
+    --font-ui:      'Montserrat', sans-serif;
+    --nav-bg:        #0f172a;
+    --nav-link:      #9ca3af;
+    --nav-link-hover:#ffffff;
+    --nav-accent:    #f59e0b;
+}
+
+/* reseteo basico para que no haya margenes raros */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--nav-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    padding: 20px;
+}
+
+/* aca va todo el diseño de la cajita del login */
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    font-family: var(--font-body);
+    padding: 20px;
+}
+
+.container {
+    width: 860px;
+    min-height: 460px;
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.info {
+    width: 52%;
+    background: var(--premium-gradient);
+    color: white;
+    padding: 50px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modulo {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--nav-link-hover);
+    margin-bottom: 20px;
+}
+
+.info h1 {
+    font-family: var(--font-heading);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 18px;
+    color: white;
+}
+
+.info h1 span {
+    color: var(--nav-accent);
+}
+
+.info p, .info p1 {
+    font-family: var(--font-body);
+    color: #e2e8f0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.info p1 {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.login {
+    width: 48%;
+    background: #ffffff;
+    padding: 50px 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login h2 {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--nav-bg);
+    margin-bottom: 4px;
+}
+
+.login .sub {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--nav-link);
+    margin-bottom: 26px;
+}
+
+label {
+    font-family: var(--font-ui);
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--nav-bg);
+    margin-bottom: 5px;
+}
+
+input {
+    font-family: var(--font-body);
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #1e293b;
+    background: #f8fafc;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(21, 117, 221, 0.15);
+}
+
+.campo-password {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.campo-password input {
+    margin-bottom: 0;
+    padding-right: 44px;
+}
+
+.btn-ver {
+    font-family: var(--font-ui);
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--nav-link);
+    transition: color 0.3s;
+}
+
+.btn-ver:hover {
+    color: var(--primary-color);
+}
+html{
+    scroll-behavior: smooth;
+}
+.btn-entrar {
+    font-family: var(--font-ui);
+    width: 100%;
+    padding: 13px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-entrar:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(21, 117, 221, 0.3);
+}
+
+#mensaje {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    text-align: center;
+    margin-top: 12px;
+    min-height: 18px;
+    font-weight: 600;
+}
+
+#mensaje.error {
+    color: #dc2626;
+}
+
+#mensaje.ok {
+    color: #16a34a;
+}
+
+.cambiar {
+    font-family: var(--font-body);
+    margin-top: 18px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--nav-link);
+}
+
+.cambiar button {
+    font-family: var(--font-ui);
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.cambiar button:hover {
+    color: var(--nav-accent);
+    text-decoration: underline;
+}
+
+/* esto es para que se vea bien en celulares (magia responsive) */
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        max-width: 480px;
+        min-height: auto;
+        border-radius: 12px;
+        margin: 20px 0;
+    }
+
+    .info {
+        width: 100%;
+        padding: 40px 30px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .info h1 {
+        font-size: 26px;
+    }
+
+    .login {
+        width: 100%;
+        padding: 40px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    body, :host {
+        padding: 10px;
+    }
+
+    .container {
+        margin: 10px 0;
+    }
+
+    .info, .login {
+        padding: 30px 20px;
+    }
+
+    .info h1 {
+        font-size: 22px;
+    }
+
+    .login h2 {
+        font-size: 20px;
+    }
+}

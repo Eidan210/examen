@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Arvo:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap');
+
+/* colores y fuentes que voy a usar en todos lados */
+:root {
+    --primary-color: #1575dd;
+    --premium-gradient: linear-gradient(
+        135deg,
+        #1575dd 0%,
+        #215f92 35%,
+        #1f3557 70%,
+        #3f2548 100%
+    );
+    --logo-color: rgb(13, 0, 255);
+
+    /* aca guardo las tipografias */
+    --font-display: 'Orbitron', sans-serif;       
+    --font-heading: 'Arvo', serif;                
+    --font-body:    'Arimo', sans-serif;           
+    --font-ui:      'Montserrat', sans-serif;      
+
+    /* colores para la barra de navegacion */
+    --nav-bg:        #0f172a;
+    --nav-link:      #9ca3af;
+    --nav-link-hover:#ffffff;
+    --nav-accent:    #f59e0b;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap');
+
+:root {
+    --font-display: 'Orbitron', sans-serif;
+    --font-body:    'Arimo', sans-serif;
+    --font-ui:      'Montserrat', sans-serif;
+    --nav-bg:        #0f172a;
+    --nav-link:      #9ca3af;
+    --nav-link-hover:#ffffff;
+    --nav-accent:    #f59e0b;
+}
+
+#header {
+    background-color: var(--nav-bg);
+    color: white;
+    padding: 8px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.28);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+#navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-text {
+    background-color: var(--nav-accent);
+    color: var(--nav-bg);
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.logo-info h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.logo-info p {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: #6b7280;
+}
+
+#navbar-menu ul {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+#navbar-menu a {
+    font-family: var(--font-ui);
+    color: var(--nav-link);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    letter-spacing: 0.03em;
+}
+
+#navbar-menu a:hover,
+#navbar-menu a.active {
+    color: var(--nav-link-hover);
+    border-bottom-color: var(--nav-accent);
+}
+
+.Salir a {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--nav-bg);
+    background-color: var(--nav-accent);
+    padding: 5px 14px;
+    border-radius: 6px;
+    border-bottom: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 0.03em;
+}
+
+.Salir a:hover {
+    background-color: #d97706;
+    color: white;
+    transform: translateY(-1px);
+}
+/* reseteo para q no queden bordes blancos feos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* estilos para la barra de arriba */
+.Title {
+    font-family: var(--font-ui);
+    background-color: var(--nav-bg);
+    width: 100%;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.28);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    position: sticky;
+    z-index: 100;
+    padding: 8px 0;
+}
+
+.Logo {
+    padding-left: 28px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+}
+
+.Logo:hover {
+    color: var(--nav-accent);
+}
+
+.Menu {
+    display: flex;
+    align-items: center;
+    padding-right: 30px;
+}
+
+.opciones-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    list-style: none;
+    gap: 24px;
+}
+
+.Menu li {
+    list-style: none;
+}
+
+/* links del menu */
+.Menu a {
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--nav-link);
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    background: transparent;
+    border-radius: 0;
+    display: inline-block;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    letter-spacing: 0.03em;
+}
+
+.Menu a:hover,
+.Menu a.active {
+    color: var(--nav-link-hover);
+    border-bottom-color: var(--nav-accent);
+    transform: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+/* el boton de salir que tiene un color distinto */
+.opcion-salir {
+    list-style: none;
+    margin-left: 20px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.opcion-salir a {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--nav-bg);
+    background-color: var(--nav-accent);
+    padding: 5px 14px;
+    border-radius: 6px;
+    border-bottom: none !important;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    letter-spacing: 0.03em;
+}
+
+.opcion-salir a:hover {
+    background-color: #d97706;
+    color: white;
+    border-bottom-color: transparent !important;
+    transform: translateY(-1px);
+}
+
+
+/* le doy formato a los textos de toda la pagina */
+body {
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #1e293b;
+    background-color: #f1f5f9;
+}
+
+h1 {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+}
+
+h2 {
+    font-family: var(--font-heading);
+    font-size: 0.78em;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+p {
+    font-family: var(--font-body);
+    padding-top: 6px;
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+
+/* el banner grande que esta al principio */
+main {
+    padding-top: 28px;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.Titulo-Seccion-Main {
+    background: var(--premium-gradient), url('./notebooks_bg.png');
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 82%;
+    margin: 0 auto;
+    border-radius: 14px;
+    height: auto;
+    box-shadow: 0 6px 24px rgba(21, 117, 221, 0.18);
+}
+
+.Titulo-Seccion {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 28px 32px 30px;
+    color: #f1f5f9;
+}
+
+.Titulo-Seccion h1,
+.Titulo-Seccion h2,
+.Titulo-Seccion p {
+    text-align: left;
+    width: 100%;
+}
+
+.Titulo-Seccion h2 {
+    opacity: 0.6;
+    letter-spacing: 0.14em;
+    margin-bottom: 4px;
+}
+
+
+/* la cajita donde se muestra cada examen */
+.Examenes {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding: 0;
+    width: 82%;
+    border-radius: 12px;
+    height: auto;
+    border-top: 5px solid var(--primary-color);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+.Contenedor-Info {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px 22px 18px;
+}
+
+.Contenedor-Btn {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 0 0;
+}
+
+.info-examen {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 0 8px;
+}
+
+/* la chapita con el id del examen */
+.ID-Examen {
+    font-family: var(--font-ui);
+    font-size: 0.75em;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border: 1.5px solid transparent;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)) padding-box,
+        var(--premium-gradient) border-box;
+    border-radius: 20px;
+    color: #1f3557;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    height: 26px;
+    width: auto;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* los cuadritos con data extra */
+.info-text1,
+.info-text2,
+.info-text3 {
+    font-family: var(--font-ui);
+    font-size: 0.75em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    border: 1.5px solid transparent;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)) padding-box,
+        var(--premium-gradient) border-box;
+    border-radius: 20px;
+    color: #1f3557;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    padding: 5px 14px;
+    justify-content: center;
+}
+
+/* boton para empezar el examen */
+.Btn-Resolver {
+    font-family: var(--font-ui);
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    background: var(--premium-gradient);
+    border: none;
+    color: white;
+    padding: 9px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(33, 95, 146, 0.25);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.Btn-Resolver:hover {
+    background: linear-gradient(135deg, rgb(20, 18, 82) 0%, rgb(10, 8, 52) 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(20, 18, 82, 0.4);
+}
+
+.Btn-Resolver:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(20, 18, 82, 0.3);
+}
+
+
+/* el pie de pagina al final */
+footer {
+    background: var(--nav-bg);
+    padding: 14px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 -1px 8px rgba(0, 0, 0, 0.25);
+    margin-top: auto;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links a {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    text-decoration: none;
+    color: #6b7280;
+    transition: color 0.3s ease;
+    letter-spacing: 0.02em;
+}
+
+.footer-links a:hover {
+    color: var(--nav-accent);
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social a {
+    color: #6b7280;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-social a:hover {
+    color: var(--nav-accent);
+    transform: translateY(-3px);
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme School</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <template id="login-template">
+        <link rel="stylesheet" href="./style.css">
+        
+        <div class="container">
+            <section class="info">
+                <h1 class="modulo">ACME SCHOOL</h1>
+                <p1>Gestiona usuarios y examenes con una cuenta <span>autorizada.</span></p1>
+                <p>Ingresa para administrar el banco de examenes de Acme School. Los estudiantes pueden resolver pruebas desde el modulo publico.</p>
+            </section>
+
+            <section class="login">
+                <div id="vista-login">
+                    <h2>Iniciar sesion</h2>
+                    <p class="sub">Ingresa tus datos</p>
+
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="admin@acme.edu">
+
+                    <label for="password">Contrasena</label>
+                    <div class="campo-password">
+                        <input id="password" type="password" placeholder="••••••••">
+                        <button class="btn-ver" id="mostrar">ver</button>
+                    </div>
+
+                    <button class="btn-entrar" id="entrar">Entrar</button>
+
+                    <p id="mensaje"></p>
+
+                    <p class="cambiar">
+                        No tienes cuenta?
+                        <button id="ir-registro">Registrate</button>
+                    </p>
+                </div>
+
+                <div id="vista-registro" style="display: none">
+                    <h2>Crear cuenta</h2>
+                    <p class="sub">Completa tus datos</p>
+
+                    <label for="r-nombre">Nombre</label>
+                    <input id="r-nombre" type="text" placeholder="Tu nombre">
+
+                    <label for="r-email">Email</label>
+                    <input id="r-email" type="email" placeholder="correo@acme.edu">
+
+                    <label for="r-password">Contrasena</label>
+                    <div class="campo-password">
+                        <input id="r-password" type="password" placeholder="••••••••">
+                        <button class="btn-ver" id="mostrar-r">ver</button>
+                    </div>
+
+                    <button class="btn-entrar" id="registrar">Crear cuenta</button>
+
+                    <p id="mensaje"></p>
+
+                    <p class="cambiar">
+                        Ya tienes cuenta?
+                        <button id="ir-login">Inicia sesion</button>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </template>
+
+    <login-acme></login-acme>
+    
+    <script type="module" src="./login.js"></script>
+
+</body>
+</html>

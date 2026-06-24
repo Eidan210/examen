@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos básicos del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Exámenes - Acme School</title>
+    <!-- Enlace a la hoja de estilos compartida para la creación de exámenes -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Barra de navegación principal que aparece en la parte superior -->
+    <header id="header">
+        <div id="navbar-logo">
+            <span class="logo-text">A</span>
+            <div class="logo-info">
+                <h3>Acme School</h3>
+                <p>Learning platform</p>
+            </div>
+        </div>
+        <nav id="navbar-menu">
+            <ul>
+                <!-- Enlaces a los diferentes módulos de la aplicación -->
+                <li><a href="../ResolverExamen-contador/Examenes.html" id="nav-resolver">Resolver examen</a></li>
+                <li><a href="#" id="nav-usuarios">Usuarios</a></li>
+                <!-- Pestaña activa por defecto -->
+                <li><a href="#" id="nav-examenes" class="active">Exámenes</a></li>
+                <ul class="opcion-salir">
+                    <!-- Botón para cerrar sesión y volver al login -->
+                    <li class="Salir"><a href="../login oc/index.html">Salir</a></li>
+                </ul>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenedor central donde se muestran las vistas dinámicas -->
+    <main id="main-content">
+        <!-- Encabezado de la página activa -->
+        <section id="page-header">
+            <h2>BANCO DE PREGUNTAS</h2>
+            <h1>Gestión de exámenes</h1>
+            <p>Configure exámenes, preguntas y respuestas. Cada pregunta admite una única respuesta correcta.</p>
+        </section>
+
+        <!-- SECCIÓN 1: Formulario para crear o editar un examen -->
+        <section id="crear-examen-section">
+            <h3>Crear examen</h3>
+            
+            <form id="exam-form">
+                <!-- Primera fila: Código generado automáticamente y Título -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="exam-codigo">Código</label>
+                        <input type="text" id="exam-codigo" placeholder="Ej: EX-001" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="exam-titulo">Título</label>
+                        <input type="text" id="exam-titulo" placeholder="Fundamentos de JavaScript">
+                    </div>
+                </div>
+
+                <!-- Segunda fila: Configuración de tiempo y porcentaje de aprobación -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="exam-tiempo">Tiempo en minutos</label>
+                        <input type="number" id="exam-tiempo" value="30">
+                    </div>
+                    <div class="form-group">
+                        <label for="exam-porcentaje">Porcentaje de aprobación</label>
+                        <input type="number" id="exam-porcentaje" value="70">
+                    </div>
+                </div>
+
+                <!-- Campo para detallar de qué trata el examen -->
+                <div class="form-group">
+                    <label for="exam-descripcion">Descripción</label>
+                    <textarea id="exam-descripcion" placeholder="Evalúa conceptos básicos de variables, funciones, arreglos y DOM."></textarea>
+                </div>
+
+                <!-- Subsección para agregar las preguntas dinámicamente -->
+                <div id="preguntas-section">
+                    <h4>Preguntas</h4>
+                    
+                    <!-- Contenedor donde JS inyectará los bloques de preguntas -->
+                    <div id="preguntas-list">
+                        <!-- Estructura base de una pregunta por defecto -->
+                        <div class="pregunta-item" id="pregunta-1">
+                            <div class="pregunta-header">
+                                <label>Pregunta 1</label>
+                                <button type="button" class="btn-eliminar btn-eliminar-pregunta">Eliminar</button>
+                            </div>
+                            <div class="pregunta-body">
+                                <textarea id="pregunta-texto-1" placeholder="¿Cuál palabra clave permite declarar variables..."></textarea>
+                            </div>
+                            <div class="respuestas-container" id="respuestas-1">
+                                <!-- Estructura base de una respuesta por defecto -->
+                                <div class="respuesta-item">
+                                    <input type="radio" name="correcta-1" value="0">
+                                    <input type="text" placeholder="Opción A" class="respuesta-input">
+                                    <button type="button" class="btn-eliminar-respuesta">✕</button>
+                                </div>
+                            </div>
+                            <!-- Botón para añadir más opciones de respuesta a esta pregunta -->
+                            <button type="button" class="btn-agregar-respuesta">+ Agregar respuesta</button>
+                        </div>
+                    </div>
+
+                    <!-- Botón global para añadir una nueva pregunta al examen -->
+                    <button type="button" id="btn-agregar-pregunta" class="btn-agregar-pregunta">+ Agregar pregunta</button>
+                </div>
+
+                <!-- Botones finales de guardado y cancelación del formulario -->
+                <div class="form-actions">
+                    <button type="submit" id="btn-guardar-examen" class="btn-primary">Guardar examen</button>
+                    <button type="button" id="btn-cancelar" class="btn-secondary">Cancelar</button>
+                </div>
+            </form>
+        </section>
+        <br>
+
+        <!-- SECCIÓN 2: Tabla que lista todos los exámenes ya guardados -->
+        <section id="examenes-registrados-section">
+            <h3>Exámenes registrados</h3>
+            
+            <div class="table-responsive">
+                <table id="examenes-tabla">
+                    <thead>
+                        <tr>
+                            <th>CÓDIGO</th>
+                            <th>EXAMEN</th>
+                            <th>TIEMPO</th>
+                            <th>APROBADOS</th>
+                            <th>PREGUNTAS</th>
+                            <th>ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody id="examenes-tbody">
+                        <!-- JS inyectará aquí las filas de la tabla -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: Tabla de usuarios registrados (Oculta por defecto) -->
+        <section id="usuarios-section" style="display: none;">
+            <h3>Usuarios registrados</h3>
+            
+            <div class="table-responsive">
+                <table id="usuarios-tabla">
+                    <thead>
+                        <tr>
+                            <th>NOMBRE</th>
+                            <th>EMAIL</th>
+                            <th>CARGO</th>
+                            <th>EXÁMENES REALIZADOS</th>
+                            <th>CALIFICACIÓN</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuarios-tbody">
+                        <!-- JS inyectará aquí los usuarios y sus resultados -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pie de página estático -->
+    <footer id="footer">
+        <p>&copy; 2024 Acme School. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Carga del archivo JavaScript principal al final para no bloquear la vista inicial -->
+    <script src="app.js"></script>
+</body>
+</html>

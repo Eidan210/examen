@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Metadatos de codificación y responsividad -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acme School</title>
+    <!-- Hoja de estilos principal del login -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Template que contiene todo el diseño del Login. 
+         No es visible por sí solo; es procesado por el componente en login.js -->
+    <template id="login-template">
+        <!-- El CSS se importa de nuevo aquí para que afecte al Shadow DOM del componente -->
+        <link rel="stylesheet" href="./style.css">
+        
+        <div class="container">
+            <!-- Sección estática con el texto de bienvenida -->
+            <section class="info">
+                <h1 class="modulo">ACME SCHOOL</h1>
+                <p1>Gestiona usuarios y examenes con una cuenta <span>autorizada.</span></p1>
+                <p>Ingresa para administrar el banco de examenes de Acme School. Los estudiantes pueden resolver pruebas desde el modulo publico.</p>
+            </section>
+
+            <!-- Sección interactiva: Formulario de inicio de sesión y registro -->
+            <section class="login">
+                
+                <!-- VISTA 1: Formulario de Login (Visible por defecto) -->
+                <div id="vista-login">
+                    <h2>Iniciar sesion</h2>
+                    <p class="sub">Ingresa tus datos</p>
+
+                    <label for="email">Email</label>
+                    <input id="email" type="email" placeholder="admin@acme.edu">
+
+                    <label for="password">Contrasena</label>
+                    <div class="campo-password">
+                        <input id="password" type="password" placeholder="••••••••">
+                        <button class="btn-ver" id="mostrar">ver</button>
+                    </div>
+
+                    <button class="btn-entrar" id="entrar">Entrar</button>
+
+                    <!-- Párrafo dinámico para mostrar mensajes de error/éxito (vacío por defecto) -->
+                    <p id="mensaje"></p>
+
+                    <p class="cambiar">
+                        No tienes cuenta?
+                        <button id="ir-registro">Registrate</button>
+                    </p>
+                </div>
+
+                <!-- VISTA 2: Formulario de Registro (Oculto mediante style="display: none") -->
+                <div id="vista-registro" style="display: none">
+                    <h2>Crear cuenta</h2>
+                    <p class="sub">Completa tus datos</p>
+
+                    <label for="r-nombre">Nombre</label>
+                    <input id="r-nombre" type="text" placeholder="Tu nombre">
+
+                    <label for="r-email">Email</label>
+                    <input id="r-email" type="email" placeholder="correo@acme.edu">
+
+                    <label for="r-password">Contrasena</label>
+                    <div class="campo-password">
+                        <input id="r-password" type="password" placeholder="••••••••">
+                        <button class="btn-ver" id="mostrar-r">ver</button>
+                    </div>
+
+                    <button class="btn-entrar" id="registrar">Crear cuenta</button>
+
+                    <!-- Párrafo para retroalimentación visual al registrar -->
+                    <p id="mensaje"></p>
+
+                    <p class="cambiar">
+                        Ya tienes cuenta?
+                        <button id="ir-login">Inicia sesion</button>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </template>
+
+    <!-- Componente web propio que inyecta la lógica y el HTML del template anterior -->
+    <login-acme></login-acme>
+    
+    <!-- Script de lógica de log in -->
+    <script type="module" src="./login.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolver Examen - Acme School</title>
+    <!-- Estilo aplicado a la base de la página -->
+    <link rel="stylesheet" href="./RealizarExamen.css">
+</head>
+<body>
+
+    <!-- El template define un bloque de HTML que no se muestra directamente.
+         Será leído y clonado por el Web Component 'resolver-examen' (en RealizarExamen.js) -->
+    <template id="examen-template">
+        <!-- Re-importar el CSS es necesario aquí para que los estilos apliquen dentro del Shadow DOM -->
+        <link rel="stylesheet" href="./RealizarExamen.css">
+        
+        <div class="layout">
+            <!-- Barra de navegación del área de examen -->
+            <header class="Title">
+                <div id="navbar-logo">
+                    <span class="logo-text">A</span>
+                    <div class="logo-info">
+                        <h3>Acme School</h3>
+                        <p>Learning platform</p>
+                    </div>
+                </div>
+                <nav class="Menu">
+                    <ul class="opciones-main">
+                        <li class="Inicio"><a href="../PortalCreaciónExamen/CrearExamen.html">Crear Examen</a></li>
+                        <li class="Acerca"><a href="./Examenes.html" class="active">Resolver Examen</a></li>
+                    </ul>
+                    <ul class="opcion-salir">
+                        <li class="Salir"><a href="../login oc/index.html">Salir</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Contenedor donde ocurre la prueba interactiva -->
+            <main class="main-content">
+                <div class="exam-container">
+                    
+                    <!-- Encabezado con datos del examen y el reloj regresivo -->
+                    <div class="exam-header">
+                        <div class="exam-info">
+                            <span class="badge" id="codigo-examen">CARGANDO...</span>
+                            <h1 id="titulo-examen">Cargando examen...</h1>
+                            <p id="detalles-examen">-- preguntas - Aprueba con --%</p>
+                        </div>
+                        <div class="timer-box">
+                            <!-- Aquí JS actualizará los minutos y segundos cada segundo -->
+                            <span id="temporizador">00:00</span>
+                        </div>
+                    </div>
+
+                    <!-- Div vacío donde el JS inyectará iterativamente la lista de preguntas -->
+                    <div class="questions-container" id="lista-preguntas">
+                        </div>
+
+                    <!-- Botón para finalizar la prueba y calcular el resultado -->
+                    <div class="exam-footer">
+                        <button class="btn-terminar" id="btn-terminar">Terminar</button>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </template>
+
+    <!-- Etiqueta personalizada (Web Component) que encapsula toda la funcionalidad del examen -->
+    <resolver-examen></resolver-examen>
+    
+    <!-- Script principal definido como módulo para permitir encapsulamiento avanzado de JS -->
+    <script type="module" src="./RealizarExamen.js"></script>
+
+</body>
+</html>

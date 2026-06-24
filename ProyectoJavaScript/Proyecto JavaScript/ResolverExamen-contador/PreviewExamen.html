@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examenes</title>
+    <!-- Importación de iconos y múltiples hojas de estilo -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="previewStyles.css">
+</head>
+<body>
+    <!-- Barra superior de navegación idéntica al resto del módulo -->
+    <header class="Title">
+            <div id="navbar-logo">
+                <span class="logo-text">A</span>
+                <div class="logo-info">
+                    <h3>Acme School</h3>
+                    <p>Learning platform</p>
+                </div>
+            </div>
+            <nav class="Menu">
+                <ul class="opciones-main">
+                    <li class="Inicio"><a href="../PortalCreaciónExamen/CrearExamen.html" target="_self">Crear Examen</a></li>
+                    <li class="Acerca"><a href="./Examenes.html" target="_self" class="active">Resolver Examen</a></li>
+                </ul>
+                <ul class="opcion-salir">
+                    <li class="Salir"><a href="../login oc/index.html" target="_self">Salir</a></li>
+                </ul>
+            </nav>
+    </header>
+    
+    <!-- Contenedor principal donde previewExamen.js inyectará el formulario de registro del alumno -->
+    <main class="preview-main">
+        <div>
+            <!-- JS llenará esto pidiendo nombre y matrícula antes del examen -->
+        </div>
+    </main>
+
+    <!-- Pie de página estándar -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Política de Privacidad</a>
+            <a href="#">Términos de Uso</a>
+        </div>
+        <div class="footer-social">
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </footer>
+    
+    <!-- Script que obtiene el código de la URL, dibuja la tarjeta y envía al alumno al examen -->
+    <script src="previewExamen.js"></script>
+</body>
+</html>
